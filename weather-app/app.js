@@ -1,11 +1,7 @@
-console.log('Starting ')
+const request = require('request');
 
-setTimeout(() => {
-  console.log('2 second timer');
-}, 2000);
+const url = 'https://api.darksky.net/forecast/ebb35e0b96ae8cab0da103efd6ce97ad/37.8267,-122.4233';
 
-setTimeout(() => {
-  console.log('0 second timer')
-}, 0);
-
-console.log('Stopping')
+request({ url: url, json: true }, (error, response) => {
+  console.log(response.body.currently.temperature);
+})
